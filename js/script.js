@@ -1,6 +1,7 @@
 import App from './product.js';
 import './shoppingListModal.js';
 import './menuBAr.js';
+
 // Selectors
 const main = document.querySelector('.main');
 
@@ -19,9 +20,4 @@ main.addEventListener('click', function (e) {
     return;
 
   App.openModal(product);
-
-
 });
-App.shoppingList;
-// App.increaseProduct(id);
-// App.decreaseProduct(id);
