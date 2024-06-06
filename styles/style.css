@@ -370,9 +370,9 @@ Buttons on product card
 
 .open-shopping-list {
   padding: 0.7rem 1rem;
-  margin: 1rem;
+  margin: 1.5rem;
   position: fixed;
-  top: 0;
+  bottom: 0;
   width: 3rem;
   height: 3rem;
   z-index: 4;
