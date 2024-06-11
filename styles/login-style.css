@@ -1,0 +1,173 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+.left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.inner-box {
+    padding: 8% 3%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.headersec {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    width: 150px;
+    height: 25px;
+    margin-bottom: 30px;
+}
+
+.last-line {
+    color: rgb(132, 132, 132);
+    font-weight: 400;
+}
+
+.mainsec {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.mail-label {
+    font-size: 0.8rem;
+}
+
+.pass-label {
+    font-size: 0.8rem;
+}
+
+#mail-input {
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 3px;
+    height: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+#pass-input {
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 3px;
+    height: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+
+}
+
+.checkbox--label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.a-remember {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#checkbox {
+    height: 0.65rem;
+    width: 0.65rem;
+}
+
+.checkbox-label {
+    font-size: 0.65rem;
+    padding-left: 3px;
+}
+
+.forgot-link {
+    font-size: 0.65rem;
+    color: gray;
+    text-decoration: none;
+}
+
+.arrow-svg {
+    line-height: 1px;
+}
+
+.login-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #432d27;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    height: 1.6rem;
+}
+
+.footersec {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-text,
+.a-footer-text {
+    font-size: 0.6rem;
+}
+
+.a-footer-text {
+    color: #c6978e;
+    text-decoration: none;
+}
+
+.right {
+    background-color: #985e49;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.inner-box-right {
+    width: 80%;
+    height: 70vh;
+    padding: 15% 7%;
+    background-color: #c6978e;
+    border-radius: 7%;
+    position: relative;
+}
+
+.right-img {
+    margin-bottom: 30px;
+    position: absolute;
+    right: -15px;
+    w
+}
+
+.text-box {
+    position: absolute;
+    bottom: 0;
+    margin: 0 5% 10% 5%;
+}
