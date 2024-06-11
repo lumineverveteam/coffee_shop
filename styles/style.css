@@ -1,4 +1,22 @@
-* {}
+/* Header style start */
+
+.theHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.5rem;
+  background: #985e49;
+}
+
+
+.logInButton {
+  border: none;
+  border-radius: 20px;
+  background-color: #eae7e7
+}
+
+
+/* Header style end */
 
 /* app bar start */
 
