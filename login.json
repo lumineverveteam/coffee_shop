@@ -1,0 +1,122 @@
+[
+    {
+        "ID": 1,
+        "Email": "user1@example.com",
+        "userName": "user1",
+        "password": "password123"
+    },
+    {
+        "ID": 2,
+        "Email": "user2@example.com",
+        "userName": "user2",
+        "password": "passw0rd!"
+    },
+    {
+        "ID": 3,
+        "Email": "user3@example.com",
+        "userName": "user3",
+        "password": "myp@ssword"
+    },
+    {
+        "ID": 4,
+        "Email": "user4@example.com",
+        "userName": "user4",
+        "password": "admin1234"
+    },
+    {
+        "ID": 5,
+        "Email": "user5@example.com",
+        "userName": "user5",
+        "password": "secureP@ss"
+    },
+    {
+        "ID": 6,
+        "Email": "user6@example.com",
+        "userName": "user6",
+        "password": "qwerty!23"
+    },
+    {
+        "ID": 7,
+        "Email": "user7@example.com",
+        "userName": "user7",
+        "password": "letmein@789"
+    },
+    {
+        "ID": 8,
+        "Email": "user8@example.com",
+        "userName": "user8",
+        "password": "pa$$word"
+    },
+    {
+        "ID": 9,
+        "Email": "user9@example.com",
+        "userName": "user9",
+        "password": "password987"
+    },
+    {
+        "ID": 10,
+        "Email": "user10@example.com",
+        "userName": "user10",
+        "password": "user10pass"
+    },
+    {
+        "ID": 11,
+        "Email": "user11@example.com",
+        "userName": "user11",
+        "password": "examplePass"
+    },
+    {
+        "ID": 12,
+        "Email": "user12@example.com",
+        "userName": "user12",
+        "password": "pass!word12"
+    },
+    {
+        "ID": 13,
+        "Email": "user13@example.com",
+        "userName": "user13",
+        "password": "secreT123"
+    },
+    {
+        "ID": 14,
+        "Email": "user14@example.com",
+        "userName": "user14",
+        "password": "mypassword!"
+    },
+    {
+        "ID": 15,
+        "Email": "user15@example.com",
+        "userName": "user15",
+        "password": "loginPass15"
+    },
+    {
+        "ID": 16,
+        "Email": "user16@example.com",
+        "userName": "user16",
+        "password": "user16secure"
+    },
+    {
+        "ID": 17,
+        "Email": "user17@example.com",
+        "userName": "user17",
+        "password": "my!pass17"
+    },
+    {
+        "ID": 18,
+        "Email": "user18@example.com",
+        "userName": "user18",
+        "password": "mypassword18"
+    },
+    {
+        "ID": 19,
+        "Email": "user19@example.com",
+        "userName": "user19",
+        "password": "passw@rd19"
+    },
+    {
+        "ID": 20,
+        "Email": "user20@example.com",
+        "userName": "user20",
+        "password": "securepass20"
+    }
+]

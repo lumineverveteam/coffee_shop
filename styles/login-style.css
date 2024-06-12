@@ -172,11 +172,12 @@
 }
 
 .error {
-    /* display: none; */
+    display: none;
 }
 
 .error-span {
     color: rgb(255, 0, 0);
     font-size: 0.8rem;
     font-weight: bold;
+    
 }
