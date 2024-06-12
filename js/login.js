@@ -9,7 +9,7 @@ const mainsec=document.querySelector('.mainsec')
 const checkboxRemember=document.getElementById('checkbox')
 let rememberArray=JSON.parse(localStorage.getItem('remember')) || [];
 let rememberUser={}
-// Load remembered user data if available
+// Load remembered user 
 window.addEventListener('load', () => {
     if (rememberArray.length > 0) {
         const lastRememberedUser = rememberArray[rememberArray.length - 1];
