@@ -406,13 +406,11 @@ Buttons on product card
 
   transition: all 0.3s;
   opacity: 1;
-  /* transform: translate(-50%, -50%) rotateZ(0) scale(1); */
 }
 
 .open-shopping-list__icon--hidden {
   visibility: hidden;
   opacity: 0;
-  /* transform: translate(-50%, -50%) rotateZ(1440deg) scale(0.7); */
 }
 
 .shopping-list-modal {
@@ -427,10 +425,10 @@ Buttons on product card
   transform: translate(-50%, -50%) scale(1);
   transition: opacity 0.3s 0.2s, transform 0.3s 0.2s;
 
-  -webkit-transform: translate(-50%, -50%) scale(1);
+  /* -webkit-transform: translate(-50%, -50%) scale(1);
   -moz-transform: translate(-50%, -50%) scale(1);
   -ms-transform: translate(-50%, -50%) scale(1);
-  -o-transform: translate(-50%, -50%) scale(1);
+  -o-transform: translate(-50%, -50%) scale(1); */
 }
 
 .shopping-list-modal--hidden {
@@ -672,4 +670,10 @@ Go Up button styles
 .slide-up {
   transform: translateY(100px);
   opacity: 0;
+}
+
+@media (max-width: 576px) {
+  .shopping-list-modal {
+    width: 90%;
+  }
 }
