@@ -1,19 +1,20 @@
 import scrollFix from './replaceRemovedScrollBar.js';
-import shoppingList from "./product.js"
-import app from './product.js'
+import shoppingList from './product.js';
+import app from './product.js';
 
 // Selectors
 const btnOpenModal = document.querySelector('.open-shopping-list');
 const modal = document.querySelector('.shopping-list-modal');
 const overlay = document.querySelector('.shopping-list__overlay');
-const plusBtn=document.querySelector('.pluse-btn');
-const minesBtn=document.querySelector('.mines-btn');
-const orderCount=document.querySelector('.order-count');
-let count=0
-const shoppingBox=document.querySelector('.shopping-box')
-const productList=document.querySelector('.product-list')
-let basketList=Array.from(app.shoppingList)
-const totalProductPrice=document.querySelector('.total-price')
+const plusBtn = document.querySelector('.pluse-btn');
+const minesBtn = document.querySelector('.mines-btn');
+const orderCount = document.querySelector('.order-count');
+let count = 0;
+const shoppingBox = document.querySelector('.shopping-box');
+const productList = document.querySelector('.product-list');
+let basketList = Array.from(app.shoppingList);
+const totalProductPrice = document.querySelector('.total-price');
+
 // Functions
 const closeModal = function () {
   document.body.classList.remove('disable-scroll');
@@ -44,9 +45,6 @@ const toggleModalBtn = function (btnContainer) {
 // Events
 
 btnOpenModal.addEventListener('click', function () {
-
- 
-
   const isModalClose = modal.classList.contains('shopping-list-modal--hidden');
 
   if (isModalClose) openModal();
@@ -54,20 +52,24 @@ btnOpenModal.addEventListener('click', function () {
   if (!isModalClose) closeModal();
 
   toggleModalBtn(this);
-  generateProductOrder(app.shoppingList)
+  generateProductOrder(app.shoppingList);
 });
 
+overlay.addEventListener('click', function () {
+  closeModal();
+  toggleModalBtn(btnOpenModal);
+});
 
 //show order products
 
 function generateProductOrder(basketList) {
- updateTotalPrice()
-console.log(app.shoppingList);
+  updateTotalPrice();
+  console.log(app.shoppingList);
   let totalPrice = 0;
   productList.innerHTML = '';
-  if (shoppingList.shoppingList.length!==0) {
+  if (shoppingList.shoppingList.length !== 0) {
     app.shoppingList.forEach((product, index) => {
-      totalPrice  += Number(product.count) * Number(product.product.price);
+      totalPrice += Number(product.count) * Number(product.product.price);
 
       let shop = `
         <div class="products-in-shopping-list" data-id="${product.id}">
@@ -94,40 +96,42 @@ console.log(app.shoppingList);
             </div>
           </div>
         </div>`;
-      
+
       productList.insertAdjacentHTML('beforeend', shop);
     });
 
     totalProductPrice.innerHTML = totalPrice;
 
-    document.querySelectorAll('.products-in-shopping-list').forEach((productElement, index) => {
-      const plusBtn = productElement.querySelector('.pluse-btn');
-      const orderCount = productElement.querySelector('.order-count');
-      const minesBtn = productElement.querySelector('.mines-btn');
-      
-      plusBtn.addEventListener('click', () => {
-        app.increaseProduct(app.shoppingList[index].id);
-        orderCount.textContent = app.shoppingList[index].count;
-        updateTotalPrice();
-      });
+    document
+      .querySelectorAll('.products-in-shopping-list')
+      .forEach((productElement, index) => {
+        const plusBtn = productElement.querySelector('.pluse-btn');
+        const orderCount = productElement.querySelector('.order-count');
+        const minesBtn = productElement.querySelector('.mines-btn');
 
-      minesBtn.addEventListener('click', () => {
-        
-        app.decreaseProduct(app.shoppingList[index]?.id);
-      
+        plusBtn.addEventListener('click', () => {
+          app.increaseProduct(app.shoppingList[index].id);
+          orderCount.textContent = app.shoppingList[index].count;
+          updateTotalPrice();
+        });
+
+        minesBtn.addEventListener('click', () => {
+          app.decreaseProduct(app.shoppingList[index]?.id);
+
           orderCount.textContent = app.shoppingList[index]?.count;
           updateTotalPrice();
-        
-        if(!app.shoppingList[index]){
-          generateProductOrder(app.shoppingList);
-          // console.log('product removed');
 
-        }
-
+          if (!app.shoppingList[index]) {
+            generateProductOrder(app.shoppingList);
+            // console.log('product removed');
+          }
+        });
       });
-    });
   } else {
-    productList.insertAdjacentHTML('afterbegin','<p>No products in the shopping list.</p>');
+    productList.insertAdjacentHTML(
+      'afterbegin',
+      '<p>No products in the shopping list.</p>'
+    );
   }
 }
 

@@ -8,13 +8,11 @@
   background: #985e49;
 }
 
-
 .logInButton {
   border: none;
   border-radius: 20px;
-  background-color: #eae7e7
+  background-color: #eae7e7;
 }
-
 
 /* Header style end */
 
@@ -36,7 +34,6 @@
   width: 100%;
   scrollbar-width: none;
   z-index: 2;
-
 }
 
 .swiper,
@@ -49,7 +46,6 @@ swiper-container {
   padding: 0;
   z-index: 1;
   display: block;
-
 }
 
 .pl-5 {
@@ -106,7 +102,6 @@ swiper-container {
   font-size: 13px;
   color: #fff;
 }
-
 
 /* app Bar end */
 
@@ -172,9 +167,11 @@ In case of unavailability
 .product--not-available {
   position: relative;
   backdrop-filter: blur(90px);
-  background: linear-gradient(90deg,
-      rgba(114, 115, 99, 1) 19%,
-      rgba(175, 172, 171, 1) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(114, 115, 99, 1) 19%,
+    rgba(175, 172, 171, 1) 100%
+  );
 }
 
 .availability {
@@ -251,7 +248,6 @@ Buttons on product card
   display: flex;
   font-weight: bolder;
 }
-
 
 .product-title {
   font-size: 1.6rem;
@@ -358,9 +354,11 @@ Buttons on product card
 }
 
 .product--in-shopping-list {
-  background: linear-gradient(90deg,
-      rgba(114, 115, 99, 1) 19%,
-      rgba(175, 172, 171, 1) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(114, 115, 99, 1) 19%,
+    rgba(175, 172, 171, 1) 100%
+  );
   position: relative;
 }
 
@@ -419,23 +417,16 @@ Buttons on product card
 
 .shopping-list-modal {
   width: 30rem;
-  /*Notresponsive#f00*/
-  /*height: 70vh;
-  */
+
   position: fixed;
   top: 50%;
   left: 50%;
-  z-index: 5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  /*background-color: blue;
-  */
+  z-index: 3;
   visibility: visible;
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
   transition: opacity 0.3s 0.2s, transform 0.3s 0.2s;
+
   -webkit-transform: translate(-50%, -50%) scale(1);
   -moz-transform: translate(-50%, -50%) scale(1);
   -ms-transform: translate(-50%, -50%) scale(1);
@@ -477,8 +468,8 @@ Buttons on product card
 }
 
 .shopping-box {
-  width: 40vw;
-  min-width: 300px;
+  /* width: 40vw;
+  min-width: 300px; */
   height: 80vh;
   background-color: rgb(255, 219, 219);
   border-radius: 10px;
@@ -487,7 +478,7 @@ Buttons on product card
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 20PX 0PX;
+  padding: 20px 0px;
   position: relative;
   overflow: auto;
 }
@@ -520,7 +511,6 @@ Buttons on product card
   align-items: center;
   padding-right: PX;
   margin-top: 30px;
-
 }
 
 .right-product {
@@ -546,15 +536,12 @@ Buttons on product card
   display: flex;
   justify-content: end;
   align-items: end;
-
 }
 
 .photo-of-product {
   width: 60px;
   height: 60px;
-  border-radius: 10PX;
-
-
+  border-radius: 10px;
 }
 
 .photo-of-product2 {
@@ -563,9 +550,7 @@ Buttons on product card
   display: flex;
   justify-content: end;
   align-items: center;
-
 }
-
 
 .left-product {
   width: 20%;
@@ -579,8 +564,6 @@ Buttons on product card
   align-items: end;
   margin-bottom: 7px;
 }
-
-
 
 .btn-box {
   border: 1px solid black;
@@ -603,7 +586,6 @@ Buttons on product card
   width: 20px;
   line-height: 1.2px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
 }
 
 .pluse-btn {
@@ -615,8 +597,6 @@ Buttons on product card
   line-height: 2px;
   padding: 1px 1.5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
-
 }
 
 .total-price-in-shopping-list {
@@ -635,7 +615,6 @@ Buttons on product card
   border: none;
   background-color: transparent;
 }
-
 
 .close-svg {
   width: 20px;
@@ -681,7 +660,7 @@ Go Up button styles
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  display: none; 
+  display: none;
   transition: transform 0.3s ease, opacity 0.3s ease;
   font-size: 24px;
   text-align: center;
