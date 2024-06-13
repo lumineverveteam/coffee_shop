@@ -33,6 +33,10 @@ const openModal = function () {
 
   modal.classList.remove('shopping-list-modal--hidden');
 
+  modal.style.transform = `translate( calc(-50% - ${
+    scrollFix.scrollBarWidth / 2
+  }px), -50%) scale(1)`;
+
   scrollFix.addScrollPadding();
 };
 

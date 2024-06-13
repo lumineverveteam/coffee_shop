@@ -20,21 +20,22 @@ const getScrollbarWidth = function () {
 
   return scrollbarWidth;
 };
-const scrollWidth = getScrollbarWidth();
+const scrollBarWidth = getScrollbarWidth();
 
 const addScrollPadding = function () {
   body.style.paddingRight = `${
-    Number.parseFloat(getComputedStyle(body).paddingRight) + scrollWidth
+    Number.parseFloat(getComputedStyle(body).paddingRight) + scrollBarWidth
   }px`;
 };
 
 const removeScrollPadding = function () {
   body.style.paddingRight = `${
-    Number.parseFloat(getComputedStyle(body).paddingRight) - scrollWidth
+    Number.parseFloat(getComputedStyle(body).paddingRight) - scrollBarWidth
   }px`;
 };
 
 export default {
   addScrollPadding,
   removeScrollPadding,
+  scrollBarWidth,
 };
