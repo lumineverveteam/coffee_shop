@@ -39,7 +39,7 @@ window.addEventListener('load', () => {
                }
                
             }
-             window.location.href = 'index.html';
+             window.location.href = 'dashboard.html';
          
         }else{
             errorContainer.style.display='block'
