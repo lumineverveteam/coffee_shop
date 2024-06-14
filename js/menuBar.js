@@ -1,87 +1,44 @@
-
-
 // Selectors
-const buttonHolder = document.getElementsByClassName('buttonholder');
-const textHolder = document.getElementsByClassName('textholder');
-const buttonsArray = Array.from(buttonHolder);
-const textHolders = Array.from(textHolder);
-const swipePosition = document.querySelector('.swipe-position');
-const menuSections=Array.from(document.getElementsByClassName("section"))
 
-let currentIndex=0;
-let translateX = 0;
+const swiperWrapper = document.querySelector('.swiper-wrapper');
+const menuSections = [...document.querySelectorAll('.section[data-topic]')];
 
+const offset = 70; // In px
 
-
-
-//add click event to each button of menu bar
-
- buttonsArray.forEach(button => {
-  button.addEventListener('click', () => {
-
-    const buttonIndex=parseInt(button.getAttribute('data-index'),10) 
-  const buttonIndexSection = button.getAttribute('data-topic');
-
- const sectionIndex=document.getElementById(buttonIndexSection)
-
-
-//menu swipe to left and right
-   const matrix = new WebKitCSSMatrix(swipePosition.style.transform);
-         const currentX = matrix.m41;
-         if(buttonIndex===currentIndex){
-  
-          const newTranslateX = currentX - 225 ;
-             swipePosition.style.transform = `translate3d(${newTranslateX}px, 0px, 0px)`;
-          currentIndex=buttonIndex
-          
-        }
-
-   if(buttonIndex>currentIndex){
-  
-  const newTranslateX = currentX - (225 * (buttonIndex - currentIndex));
-     swipePosition.style.transform = `translate3d(${newTranslateX}px, 0px, 0px)`;
-  currentIndex=buttonIndex
-  
-}
-if(buttonIndex<currentIndex){
-  const newTranslateX = currentX - (225 * (buttonIndex - currentIndex));
-     swipePosition.style.transform = `translate3d(${newTranslateX}px, 0px, 0px)`;
-  currentIndex=buttonIndex
-  
-}
-
-//show textHolder of each button
-if (buttonIndex >= 0 && buttonIndex < textHolders.length) {
-  const textHolder = textHolders[buttonIndex];
- if (textHolder.style.display === 'flex') {
-    textHolder.style.display = 'none';
-  } else {
-    textHolders.forEach(holder => {
-      holder.style.display = 'none';
-    });
-    textHolder.style.display = 'flex';
-  }
-}
-
-if (sectionIndex) {
-  sectionIndex.scrollIntoView({ behavior: 'smooth' });
-}
-   
-  });
-});
-
-//swiper of menu bar
+// Funtions
 
 const swiper = new Swiper('.swiper', {
-  // Optional parameters
   direction: 'horizontal',
-  loop: true,
+  loop: false,
+
+  spaceBetween: 20,
+  slidesPerView: 'auto',
+  centeredSlides: true,
+  slideToClickedSlide: true,
+
+  breakpoints: {
+    768: {
+      spaceBetween: 100,
+    },
+  },
 });
 
-let currentTranslateX = 0;
+swiper.on('slideChange', function (e) {
+  const activeSlideIndex = e.activeIndex;
+  const activeSlide = swiperWrapper.querySelector(
+    `[data-index= "${activeSlideIndex}"]`
+  );
 
-// Update Swiper's transform 
-function updateSwiperTranslate(translateX) {
-  swiper.wrapperEl.style.transform = `translate3d(${translateX}px, 0, 0)`;
-}
-updateSwiperTranslate(500);
+  const activeSlideTopic = activeSlide.dataset.topic;
+  const relevantSection = menuSections.find(
+    section => section.dataset.topic === activeSlideTopic
+  ).previousElementSibling;
+
+  const sectionDistanceToTop = relevantSection.getBoundingClientRect().top;
+  const scrollTo = sectionDistanceToTop + window.pageYOffset - offset;
+
+  window.scrollTo({
+    top: scrollTo,
+    behavior: 'smooth',
+  });
+});
