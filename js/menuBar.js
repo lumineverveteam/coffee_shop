@@ -1,7 +1,7 @@
 // Selectors
 
 const swiperWrapper = document.querySelector('.swiper-wrapper');
-const menuSections = [...document.querySelectorAll('.section[data-topic]')];
+const mainSections = [...document.querySelectorAll('.section[data-topic]')];
 
 const offset = 70; // In px
 
@@ -10,6 +10,7 @@ const offset = 70; // In px
 const swiper = new Swiper('.swiper', {
   direction: 'horizontal',
   loop: false,
+  speed: 400,
 
   spaceBetween: 20,
   slidesPerView: 'auto',
@@ -30,7 +31,7 @@ swiper.on('slideChange', function (e) {
   );
 
   const activeSlideTopic = activeSlide.dataset.topic;
-  const relevantSection = menuSections.find(
+  const relevantSection = mainSections.find(
     section => section.dataset.topic === activeSlideTopic
   ).previousElementSibling;
 
@@ -41,4 +42,41 @@ swiper.on('slideChange', function (e) {
     top: scrollTo,
     behavior: 'smooth',
   });
+});
+
+///////////////////////////////////
+// NavBar change on section chenge
+
+let lastTimeout,
+  count = 0;
+
+const goToSection = function (entries, observer) {
+  const [entry] = entries;
+
+  if (!entry.isIntersecting) return;
+
+  const section = entry.target;
+  const relevantSlide = [...swiperWrapper.children].find(
+    slide => slide.dataset.topic === section.dataset.topic
+  );
+
+  const relevantSlideIndex = relevantSlide.dataset.index;
+
+  console.log(relevantSlideIndex);
+
+  if (lastTimeout) clearTimeout(lastTimeout);
+  lastTimeout = setTimeout(function () {
+    count++;
+
+    swiper.slideTo(relevantSlideIndex, 400, false);
+  }, 500);
+};
+
+const sectionObserver = new IntersectionObserver(goToSection, {
+  root: null,
+  threshold: 0.45,
+});
+
+mainSections.forEach(section => {
+  sectionObserver.observe(section);
 });
