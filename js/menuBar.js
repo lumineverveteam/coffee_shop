@@ -12,14 +12,23 @@ const swiper = new Swiper('.swiper', {
   loop: false,
   speed: 400,
 
-  spaceBetween: 20,
+  spaceBetween: -80,
   slidesPerView: 'auto',
   centeredSlides: true,
   slideToClickedSlide: true,
 
   breakpoints: {
+    410: {
+      spaceBetween: -60,
+    },
+    450: {
+      spaceBetween: -40,
+    },
+    500: {
+      spaceBetween: -20,
+    },
     768: {
-      spaceBetween: 100,
+      spaceBetween: 0,
     },
   },
 });
@@ -62,19 +71,16 @@ const goToSection = function (entries, observer) {
 
   const relevantSlideIndex = relevantSlide.dataset.index;
 
-  console.log(relevantSlideIndex);
-
   if (lastTimeout) clearTimeout(lastTimeout);
   lastTimeout = setTimeout(function () {
     count++;
-
     swiper.slideTo(relevantSlideIndex, 400, false);
-  }, 500);
+  }, 300);
 };
 
 const sectionObserver = new IntersectionObserver(goToSection, {
   root: null,
-  threshold: 0.45,
+  threshold: 0.4,
 });
 
 mainSections.forEach(section => {
