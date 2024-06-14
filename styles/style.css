@@ -40,7 +40,9 @@
 }
 
 .buttonholder {
-  width: fit-content;
+  width: 211px;
+  display: flex;
+  justify-content: center;
 }
 
 .buttonholder button {
