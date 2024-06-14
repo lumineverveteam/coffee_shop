@@ -4,13 +4,13 @@ const swiperWrapper = document.querySelector('.swiper-wrapper');
 const mainSections = [...document.querySelectorAll('.section[data-topic]')];
 
 const offset = 70; // In px
+let calledByObserver = false;
 
 // Funtions
 
 const swiper = new Swiper('.swiper', {
   direction: 'horizontal',
   loop: false,
-  speed: 400,
 
   spaceBetween: -80,
   slidesPerView: 'auto',
@@ -34,6 +34,8 @@ const swiper = new Swiper('.swiper', {
 });
 
 swiper.on('slideChange', function (e) {
+  if(calledByObserver) return;
+
   const activeSlideIndex = e.activeIndex;
   const activeSlide = swiperWrapper.querySelector(
     `[data-index= "${activeSlideIndex}"]`
@@ -74,8 +76,12 @@ const goToSection = function (entries, observer) {
   if (lastTimeout) clearTimeout(lastTimeout);
   lastTimeout = setTimeout(function () {
     count++;
-    swiper.slideTo(relevantSlideIndex, 400, false);
-  }, 300);
+
+    calledByObserver = true;
+    swiper.slideTo(relevantSlideIndex);
+    calledByObserver = false
+
+  }, 300);  
 };
 
 const sectionObserver = new IntersectionObserver(goToSection, {
